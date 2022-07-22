@@ -1,4 +1,4 @@
-# Duke-University--Java-Programming-Course
+# Java Programming: Solving Problems with Software
 Through this course, I learned about how to:
 1. Edit, compile, and run a Java program;
 2. Use conditionals and loops in a Java program;
