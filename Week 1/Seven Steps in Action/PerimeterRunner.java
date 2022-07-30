@@ -18,12 +18,24 @@ public class PerimeterRunner {
         // totalPerim is the answer
         return totalPerim;
     }
-
+    
+    public int getNumPoints(Shape s) {
+        int count = 0;
+        
+        for (Point point : s.getPoints()) {
+            count = count + 1;
+        }
+        
+        return count;
+    }
+    
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
         System.out.println("perimeter = " + length);
+        int numofpoints = getNumPoints(s);
+        System.out.println("Number of points in this shape: " +  numofpoints);
     }
 
     public static void main (String[] args) {
