@@ -29,13 +29,34 @@ public class PerimeterRunner {
         return count;
     }
     
+    public double getAverageLength(Shape s) {
+        // Get perimeter
+        double totalPerim = 0.0;
+        Point prevPt = s.getLastPoint();
+        for (Point currPt : s.getPoints()) {
+            double currDist = prevPt.distance(currPt);
+            totalPerim = totalPerim + currDist;
+            prevPt = currPt;
+        }
+        // Get the number of points
+        int numpoints = 0;
+        for (Point point : s.getPoints()) {
+            numpoints = numpoints + 1;
+        }
+        // Find the average length of the points in Shape s
+        double avglen = totalPerim / valueof(numpoints);
+        return avglen;
+    }
+    
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
-        System.out.println("perimeter = " + length);
+        System.out.println("Perimeter: " + length);
         int numofpoints = getNumPoints(s);
-        System.out.println("Number of points in this shape: " +  numofpoints);
+        System.out.println("Number of points: " +  numofpoints);
+        double avglen = getAverageLength(s);
+        System.out.println("Average length: " + avglen);
     }
 
     public static void main (String[] args) {
