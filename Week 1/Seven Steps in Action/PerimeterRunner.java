@@ -44,7 +44,7 @@ public class PerimeterRunner {
             numpoints = numpoints + 1;
         }
         // Find the average length of the points in Shape s
-        double avglen = totalPerim / valueof(numpoints);
+        double avglen = totalPerim / numpoints;
         return avglen;
     }
     
