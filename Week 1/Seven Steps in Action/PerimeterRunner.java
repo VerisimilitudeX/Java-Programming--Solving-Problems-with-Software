@@ -22,7 +22,7 @@ public class PerimeterRunner {
     public int getNumPoints(Shape s) {
         int count = 0;
         
-        for (Point point : s.getPoints()) {
+        for (Point pt : s.getPoints()) {
             count = count + 1;
         }
         
