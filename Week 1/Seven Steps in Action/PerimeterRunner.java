@@ -40,7 +40,7 @@ public class PerimeterRunner {
         }
         // Get the number of points
         int numpoints = 0;
-        for (Point point : s.getPoints()) {
+        for (Point pt : s.getPoints()) {
             numpoints = numpoints + 1;
         }
         // Find the average length of the points in Shape s
