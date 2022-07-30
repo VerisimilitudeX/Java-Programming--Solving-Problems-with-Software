@@ -9,4 +9,4 @@ Through this course, I learned about how to:
 7. Create a class with multiple methods that work together to solve a problem; and
 8. Use divide-and-conquer design techniques for a program that uses multiple methods.
 
-At the end of the course, I wrote an algorithm that determines the popularity of different baby names in the US over time by analyzing comma separated value (CSV) files.
+At the end of the course, I wrote an algorithm that determines the popularity of different baby names in the U.S. over time by analyzing comma separated value (CSV) files.
