@@ -60,7 +60,6 @@ public class PerimeterRunner {
             }
             currPt = prevPt;
         }
-        // Return the largest side
         return maxLen;
     }
     
