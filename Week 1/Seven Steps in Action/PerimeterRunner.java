@@ -71,7 +71,7 @@ public class PerimeterRunner {
         double avglen = getAverageLength(s);
         System.out.println("Average length: " + avglen);
         double largestSide = getLargestSide(s);
-        System.out.println("Average length: " + largestSide);
+        System.out.println("Largest side: " + largestSide);
     }
 
     public static void main (String[] args) {
