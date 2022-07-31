@@ -47,6 +47,19 @@ public class PerimeterRunner {
         double avglen = totalPerim / numpoints;
         return avglen;
     }
+
+    public double getLargestSide(Shape s) {
+        Point prevPt = s.getLastPoint();
+        double maxLen = 0.0;
+        for (Point currPt : s.getPoints()) {
+            double currLen = currPt.distance(prevPt);
+            if (currLen > maxLen) {
+                maxLen = currLen;
+            }
+            currPt = prevPt;
+        }
+        return maxLen;
+    }
     
     public void testPerimeter () {
         FileResource fr = new FileResource();
@@ -57,6 +70,8 @@ public class PerimeterRunner {
         System.out.println("Number of points: " +  numofpoints);
         double avglen = getAverageLength(s);
         System.out.println("Average length: " + avglen);
+        double largestSide = getLargestSide(s);
+        System.out.println("Average length: " + largestSide);
     }
 
     public static void main (String[] args) {
