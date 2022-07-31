@@ -63,6 +63,17 @@ public class PerimeterRunner {
         return maxLen;
     }
     
+    public double getLargestX(Shape s) {
+        double largestX = 0.0;
+        for (Point currPt : s.getPoints()) {
+            double currX = currPt.getX();
+            if (currX > largestX) {
+                largestX = currX;
+            }
+        }
+        return largestX;
+    }
+
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
@@ -74,6 +85,8 @@ public class PerimeterRunner {
         System.out.println("Average length: " + avglen);
         double largestSide = getLargestSide(s);
         System.out.println("Largest side: " + largestSide);
+        double largestX = getLargestX(s);
+        System.out.println("Largest X coordinate value: " + largestX);
     }
 
     public static void main (String[] args) {
