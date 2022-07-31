@@ -49,8 +49,10 @@ public class PerimeterRunner {
     }
 
     public double getLargestSide(Shape s) {
+        // Find the largest side of the shape
         Point prevPt = s.getLastPoint();
         double maxLen = 0.0;
+        // For each point currPt in the shape,
         for (Point currPt : s.getPoints()) {
             double currLen = currPt.distance(prevPt);
             if (currLen > maxLen) {
@@ -58,6 +60,7 @@ public class PerimeterRunner {
             }
             currPt = prevPt;
         }
+        // Return the largest side
         return maxLen;
     }
     
