@@ -1,24 +1,21 @@
+// Module provided by Duke University and is used for the purpose of this course.
+// I have added the code for this class to this GitHub repository.
 import edu.duke.*;
 
 public class PerimeterRunner {
+    // Calculate the perimeter of a shape
     public double getPerimeter (Shape s) {
-        // Start with totalPerim = 0
         double totalPerim = 0.0;
-        // Start wth prevPt = the last point 
         Point prevPt = s.getLastPoint();
-        // For each point currPt in the shape,
         for (Point currPt : s.getPoints()) {
-            // Find distance from prevPt point to currPt 
             double currDist = prevPt.distance(currPt);
-            // Update totalPerim by currDist
             totalPerim = totalPerim + currDist;
-            // Update prevPt to be currPt
             prevPt = currPt;
         }
-        // totalPerim is the answer
         return totalPerim;
     }
     
+    // Return the number of points in Shape s.
     public int getNumPoints(Shape s) {
         int count = 0;
         
@@ -29,8 +26,8 @@ public class PerimeterRunner {
         return count;
     }
     
+    // Find the average length of the sides in Shape s.
     public double getAverageLength(Shape s) {
-        // Get perimeter
         double totalPerim = 0.0;
         Point prevPt = s.getLastPoint();
         for (Point currPt : s.getPoints()) {
@@ -38,21 +35,18 @@ public class PerimeterRunner {
             totalPerim = totalPerim + currDist;
             prevPt = currPt;
         }
-        // Get the number of points
         int numpoints = 0;
         for (Point pt : s.getPoints()) {
             numpoints = numpoints + 1;
         }
-        // Find the average length of the points in Shape s
         double avglen = totalPerim / numpoints;
         return avglen;
     }
 
+    // Find a shape's largest side.
     public double getLargestSide(Shape s) {
-        // Find the largest side of the shape
         Point prevPt = s.getLastPoint();
         double maxLen = 0.0;
-        // For each point currPt in the shape,
         for (Point currPt : s.getPoints()) {
             double currLen = currPt.distance(prevPt);
             if (currLen > maxLen) {
@@ -63,6 +57,7 @@ public class PerimeterRunner {
         return maxLen;
     }
     
+    // Find a shape's largest X coordinate value.
     public double getLargestX(Shape s) {
         double largestX = 0.0;
         for (Point currPt : s.getPoints()) {
@@ -74,6 +69,7 @@ public class PerimeterRunner {
         return largestX;
     }
 
+    // Used to call all the methods present in this list for Shape s.
     public void testPerimeter () {
         FileResource fr = new FileResource();
         Shape s = new Shape(fr);
@@ -88,7 +84,7 @@ public class PerimeterRunner {
         double largestX = getLargestX(s);
         System.out.println("Largest X coordinate value: " + largestX);
     }
-
+    // Main method
     public static void main (String[] args) {
         PerimeterRunner pr = new PerimeterRunner();
         pr.testPerimeter();
