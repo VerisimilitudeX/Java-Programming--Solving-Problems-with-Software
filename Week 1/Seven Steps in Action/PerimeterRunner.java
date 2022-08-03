@@ -1,5 +1,6 @@
 // Module provided by Duke University and is used for the purpose of this course.
 // I have added the code for this class to this GitHub repository.
+import java.io.File;
 import edu.duke.*;
 
 public class PerimeterRunner {
@@ -18,11 +19,9 @@ public class PerimeterRunner {
     // Return the number of points in Shape s.
     public int getNumPoints(Shape s) {
         int count = 0;
-        
         for (Point pt : s.getPoints()) {
             count = count + 1;
         }
-        
         return count;
     }
     
@@ -69,6 +68,38 @@ public class PerimeterRunner {
         return largestX;
     }
 
+    // Find the largest perimeter of all shapes selected by the user.
+    public double getLargestPerimeterMultipleFiles() {
+        DirectoryResource dr = new DirectoryResource();
+        double largestPerim = 0.0;
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            Shape s = new Shape(fr);
+            double currPerim = getPerimeter(s);
+            if (currPerim > largestPerim) {
+                largestPerim = currPerim;
+            }
+        }
+        return largestPerim;
+    }
+
+    // Returns the name of the shape with the largest perimeter.
+    public String getFileWithLargestPerimeter() {
+        DirectoryResource dr = new DirectoryResource();
+        double largestPerim = 0.0;
+        String nameOfLargetPerim = "";
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            Shape s = new Shape(fr);
+            double currPerim = getPerimeter(s);
+            if (currPerim > largestPerim) {
+                largestPerim = currPerim;
+                nameOfLargetPerim = f.getName();
+            }
+        }
+        return nameOfLargetPerim;
+    }
+
     // Used to call all the methods present in this list for Shape s.
     public void testPerimeter () {
         FileResource fr = new FileResource();
@@ -80,13 +111,28 @@ public class PerimeterRunner {
         double avglen = getAverageLength(s);
         System.out.println("Average length: " + avglen);
         double largestSide = getLargestSide(s);
-        System.out.println("Largest side: " + largestSide);
+        System.out.println("Longest side: " + largestSide);
         double largestX = getLargestX(s);
         System.out.println("Largest X coordinate value: " + largestX);
+    }
+
+    // Used to call all the methods present in this list for Shape s (multiple files).
+    public void testPerimeterMultipleFiles() {
+        double largestPerim = getLargestPerimeterMultipleFiles();
+        System.out.println("Largest perimeter: " + largestPerim);
+        String nameOfLargetPerim = getFileWithLargestPerimeter();
+        System.out.println("File with largest perimeter: " + nameOfLargetPerim);
+    }
+     
+    public void testFileWithLargestPerimeter() {
+        String nameOfLargetPerim = getFileWithLargestPerimeter();
+        System.out.println("File with largest perimeter: " + nameOfLargetPerim);
     }
     // Main method
     public static void main (String[] args) {
         PerimeterRunner pr = new PerimeterRunner();
         pr.testPerimeter();
+        pr.testPerimeterMultipleFiles();
+        // pr.testFileWithLargestPerimeter();
     }
 }
