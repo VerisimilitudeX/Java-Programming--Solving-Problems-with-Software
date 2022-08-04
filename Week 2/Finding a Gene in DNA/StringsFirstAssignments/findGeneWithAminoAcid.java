@@ -1,3 +1,6 @@
+// If you are seeing this, please refer to my other repository on GitHub labeled "Algorithm for Finding Gene in DNA".
+// It has updated comments and is actively being worked on by a team of software developers.
+ 
 import java.util.ArrayList;
 
 public class findGeneWithAminoAcid {

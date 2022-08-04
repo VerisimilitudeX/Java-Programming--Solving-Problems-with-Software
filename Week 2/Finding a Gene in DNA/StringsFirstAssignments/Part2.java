@@ -1,5 +1,6 @@
 import java.util.*;
 
+// Part 2: Finding a Gene - Using the Simplified Algorithm Reorganized
 public class Part2 {
     public void testSimpleGene() {
         ArrayList<String> Isoleucine = new ArrayList<>(Arrays.asList("ATT", "ATC", "ATA"));
