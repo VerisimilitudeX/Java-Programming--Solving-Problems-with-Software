@@ -16,7 +16,7 @@ public class Part4 {
             String wordl = word.toLowerCase();
             int index = wordl.indexOf("youtube.com");
             if (index != -1) {
-                int start = word.indexOf("\"", index - 13);
+                int start = word.lastIndexOf("\"", index);
                 int stop = word.indexOf("\"", index);
                 System.out.println(word.substring(start + 1, stop));
             }
