@@ -1,4 +1,4 @@
-public class Main1 {
+public class debuggingPart1 {
     public static void findAbc(String input) {
         int index = input.indexOf("abc");
         while (true) {
