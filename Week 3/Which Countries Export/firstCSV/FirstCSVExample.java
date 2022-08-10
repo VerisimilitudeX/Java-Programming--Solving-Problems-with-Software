@@ -1,5 +1,6 @@
 // Reads a chosen CSV file of our preferences and prints each field.
-import edu.duke.*;
+import edu.duke.FileResource;
+
 import org.apache.commons.csv.*;
 
 public class FirstCSVExample {
@@ -11,5 +12,8 @@ public class FirstCSVExample {
 			System.out.print(record.get("Favorite Color") + " ");
 			System.out.println(record.get("Favorite Food"));
 		}
+	}
+	public static void main(String[] args) {
+		(new FirstCSVExample()).readFood();
 	}
 }
