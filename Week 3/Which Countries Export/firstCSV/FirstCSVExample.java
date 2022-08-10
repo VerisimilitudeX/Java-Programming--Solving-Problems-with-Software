@@ -1,8 +1,4 @@
-/**
- * Reads a chosen CSV file of our preferences and prints each field.
- * 
- * @author Duke Software Team
- */
+// Reads a chosen CSV file of our preferences and prints each field.
 import edu.duke.*;
 import org.apache.commons.csv.*;
 
