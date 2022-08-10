@@ -40,6 +40,19 @@ public class WhichCountriesExport {
 			}
 		}
 	}
+	public static void numberOfExporters(CSVParser parser, String exportitem) {
+		int count = 0;
+		for (CSVRecord item : parser) {
+			String export = item.get("Exports");
+			if ((export.toLowerCase()).contains(exportitem.toLowerCase())) {
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+	public static void bigExporters(CSVParser parser, String amount) {
+		
+	}
 	public static void main(String[] args) {
 
 		// Gets the country name from the user
@@ -55,5 +68,9 @@ public class WhichCountriesExport {
 
 		// Prints a list of countries that export both items	
 		listExportersTwoProducts(parser, "gold", "diamonds");
+
+		// Prints the number of countries that export the item
+		parser = fr.getCSVParser();
+		numberOfExporters(parser, "wood");
 	}
 }
