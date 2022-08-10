@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class WhichCountriesExport {
 	public static void listExporters(CSVParser parser, String exportOfInterest) {
-		//for each row in the CSV File
-		for (CSVRecord record : parser) {
-			//Look at the "Exports" column
+		// For each row in the CSV File
+		for (CSVRecord record: parser) {
+			// Look at the "Exports" column
 			String export = record.get("Exports");
-			//Check if it contains exportOfInterest
+			// Check if it contains exportOfInterest
 			if (export.contains(exportOfInterest)) {
-				//If so, write down the "Country" from that row
+				// If so, write down the "Country" from that row
 				String country = record.get("Country");
 				System.out.println(country);
 			}
@@ -19,22 +19,22 @@ public class WhichCountriesExport {
 	}
 	public static void countryInfo(CSVParser parser, String country) {
 		String info = "";
-		for (CSVRecord record : parser) {
+		for (CSVRecord record: parser) {
 			if (record.get("Country").equals(country)) {
 				info += (record.get("Country") + ": " + record.get("Exports") + ": " + record.get("Value (dollars)"));
 			}
 		}
 		if (info.length() == 0) {
 			System.out.println("NOT FOUND");
-		}
-		else {
+		} else {
 			System.out.println(info);
 		}
 	}
 	public static void listExportersTwoProducts(CSVParser parser, String exportitem1, String exportitem2) {
-		for (CSVRecord record : parser) {
+		for (CSVRecord record: parser) {
 			String export = record.get("Exports");
-			if (export.contains(exportitem1) && export.contains(exportitem2)) {
+			if (export.contains(exportitem1) &&
+				export.contains(exportitem2)) {
 				String country = record.get("Country");
 				System.out.println(country);
 			}
@@ -42,8 +42,9 @@ public class WhichCountriesExport {
 	}
 	public static void numberOfExporters(CSVParser parser, String exportitem) {
 		int count = 0;
-		for (CSVRecord item : parser) {
-			String export = item.get("Exports");
+		for (CSVRecord item: parser) {
+			String
+			export = item.get("Exports");
 			if ((export.toLowerCase()).contains(exportitem.toLowerCase())) {
 				count++;
 			}
@@ -51,7 +52,7 @@ public class WhichCountriesExport {
 		System.out.println(count);
 	}
 	public static void bigExporters(CSVParser parser, String amount) {
-		for (CSVRecord item : parser) {
+		for (CSVRecord item: parser) {
 			String value = item.get("Value (dollars)");
 			if (value.length() > amount.length()) {
 				System.out.println(item.get("Country") + ": " + value);
@@ -78,6 +79,7 @@ public class WhichCountriesExport {
 		parser = fr.getCSVParser();
 		numberOfExporters(parser, "wood");
 
+		// Prints the list of countries that have a value greater than the one specified.
 		parser = fr.getCSVParser();
 		bigExporters(parser, "$999,999,999");
 	}
