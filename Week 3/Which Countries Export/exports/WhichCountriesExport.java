@@ -51,7 +51,12 @@ public class WhichCountriesExport {
 		System.out.println(count);
 	}
 	public static void bigExporters(CSVParser parser, String amount) {
-		
+		for (CSVRecord item : parser) {
+			String value = item.get("Value (dollars)");
+			if (value.length() > amount.length()) {
+				System.out.println(item.get("Country") + ": " + value);
+			}
+		}
 	}
 	public static void main(String[] args) {
 
@@ -72,5 +77,8 @@ public class WhichCountriesExport {
 		// Prints the number of countries that export the item
 		parser = fr.getCSVParser();
 		numberOfExporters(parser, "wood");
+
+		parser = fr.getCSVParser();
+		bigExporters(parser, "$999,999,999");
 	}
 }
