@@ -30,11 +30,10 @@ public class WhichCountriesExport {
 			System.out.println(info);
 		}
 	}
-	public static void listExportersTwoProducts(CSVParser parser, String exportitem1, String exportitem2) {
+	public static void listExportersTwoProducts(CSVParser parser, String exportItem1, String exportItem2) {
 		for (CSVRecord record: parser) {
 			String export = record.get("Exports");
-			if (export.contains(exportitem1) &&
-				export.contains(exportitem2)) {
+			if (export.contains(exportItem1) && export.contains(exportItem2)) {
 				String country = record.get("Country");
 				System.out.println(country);
 			}
@@ -71,16 +70,21 @@ public class WhichCountriesExport {
 
 		// Prints the country info based on the user input
 		countryInfo(parser, country);
+		System.out.println();
 
-		// Prints a list of countries that export both items	
-		listExportersTwoProducts(parser, "gold", "diamonds");
+		// Prints a list of countries that export both items
+		parser = fr.getCSVParser();
+		listExportersTwoProducts(parser, "fish", "nuts");
+		System.out.println();
 
 		// Prints the number of countries that export the item
 		parser = fr.getCSVParser();
-		numberOfExporters(parser, "wood");
+		numberOfExporters(parser, "sugar");
+		System.out.println();
 
 		// Prints the list of countries that have a value greater than the one specified.
 		parser = fr.getCSVParser();
-		bigExporters(parser, "$999,999,999");
+		bigExporters(parser, "$999,999,999,999");
+		System.out.println();
 	}
 }
