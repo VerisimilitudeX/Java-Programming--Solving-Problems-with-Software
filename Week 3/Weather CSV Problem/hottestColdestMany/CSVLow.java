@@ -110,6 +110,17 @@ public class CSVLow {
 		}
 		return lowestHumiditySoFar;
 	}
+	public static CSVRecord lowestHumidityInManyFiles() {
+		CSVRecord lowestSoFar = null;
+		DirectoryResource dr = new DirectoryResource();
+		for (File f : dr.selectedFiles()) {
+			FileResource fr = new FileResource(f);
+			CSVRecord cr = new CSVRecord(fr.get)
+			if (lowestSoFar == null) {
+				l
+			} 
+		}
+	}
 
 	public static void main(String[] args) {
 		CSVRecord largest = hottestInManyDays();

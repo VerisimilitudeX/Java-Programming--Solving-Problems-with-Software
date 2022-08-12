@@ -59,6 +59,9 @@ public final class CSVRecord implements Serializable, Iterable<String> {
         this.characterPosition = characterPosition;
     }
 
+    public CSVRecord(CSVParser csvParser) {
+    }
+
     /**
      * Returns a value by {@link Enum}.
      *
