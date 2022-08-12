@@ -1,12 +1,7 @@
-/**
- * Find the highest (hottest) temperature in a file of CSV weather data.
- * 
- * @author Duke Software Team 
- */
 import edu.duke.*;
 import org.apache.commons.csv.*;
-import java.io.*;
 
+// Find the highest (hottest) temperature in a file of CSV weather data.
 public class CSVMax {
 	public CSVRecord hottestHourInFile(CSVParser parser) {
 		//start with largestSoFar as nothing
@@ -30,11 +25,12 @@ public class CSVMax {
 		//The largestSoFar is the answer
 		return largestSoFar;
 	}
+}
 
-	public void testHottestInDay () {
+	public void testHottestInDay() {
 		FileResource fr = new FileResource("data/2015/weather-2015-01-01.csv");
 		CSVRecord largest = hottestHourInFile(fr.getCSVParser());
 		System.out.println("hottest temperature was " + largest.get("TemperatureF") +
-				   " at " + largest.get("TimeEST"));
+				" at " + largest.get("TimeEST"));
 	}
 }
