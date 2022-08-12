@@ -146,5 +146,9 @@ public class CSVLow {
 
 		CSVRecord csv = lowestHumidityInManyFiles();
 		System.out.println("Lowest humidity was " + csv.get("Humidity") + " at " + csv.get("DateUTC"));
+
+		FileResource fr = new FileResource();
+		double avgtemp = averageTemperatureInFile(fr.getCSVParser());
+		System.out.println("Average Temperature was " + avgtemp);
 	}
 }
