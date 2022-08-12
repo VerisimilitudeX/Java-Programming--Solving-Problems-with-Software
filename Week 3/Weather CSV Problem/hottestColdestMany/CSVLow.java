@@ -58,13 +58,13 @@ public class CSVLow {
 		// The largestSoFar is the answer
 		return largestSoFar;
 	}
-    public static CSVRecord coldestHourInFile(CSVParser parser) {
-        CSVRecord lowestInFile = null;
-        for (CSVRecord currentRow : parser) {
+
+	public static CSVRecord coldestHourInFile(CSVParser parser) {
+		CSVRecord lowestInFile = null;
+		for (CSVRecord currentRow : parser) {
 			if (lowestInFile == null) {
 				lowestInFile = currentRow;
-			}
-			else {
+			} else {
 				double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
 				double lowestTemp = Double.parseDouble(lowestInFile.get("TemperatureF"));
 				if (currentTemp < lowestTemp && currentTemp != -9999) {
@@ -73,7 +73,8 @@ public class CSVLow {
 			}
 		}
 		return lowestInFile;
-    }
+	}
+
 	public static CSVRecord fileWithColdestTemperature() {
 		CSVRecord lowestSoFar = null;
 		DirectoryResource dr = new DirectoryResource();
@@ -87,7 +88,7 @@ public class CSVLow {
 			double lowestTemp = Double.parseDouble(lowestSoFar.get("TemperatureF"));
 			if (currentTemp < lowestTemp) {
 				lowestTemp = currentTemp;
-			} 
+			}
 		}
 		return lowestSoFar;
 	}
@@ -95,7 +96,7 @@ public class CSVLow {
 	public static void main(String[] args) {
 		CSVRecord largest = hottestInManyDays();
 		System.out.println("Hottest temperature was " + largest.get("TemperatureF") + " at " + largest.get("DateUTC"));
-		
+
 		CSVRecord lowest = fileWithColdestTemperature();
 		System.out.println("Coldest temperature was " + lowest.get("TemperatureF") + " at " + lowest.get("TimeEST"));
 	}
