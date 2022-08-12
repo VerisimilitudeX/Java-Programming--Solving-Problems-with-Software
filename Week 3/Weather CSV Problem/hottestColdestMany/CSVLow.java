@@ -142,7 +142,7 @@ public class CSVLow {
 		System.out.println("Hottest temperature was " + largest.get("TemperatureF") + " at " + largest.get("DateUTC"));
 
 		CSVRecord lowest = fileWithColdestTemperature();
-		System.out.println("Coldest temperature was " + lowest.get("TemperatureF") + " at " + lowest.get("TimeEST"));
+		System.out.println("Coldest temperature was " + lowest.get("TemperatureF") + " at " + lowest.get("DateUTC"));
 
 		CSVRecord csv = lowestHumidityInManyFiles();
 		System.out.println("Lowest humidity was " + csv.get("Humidity") + " at " + csv.get("DateUTC"));
