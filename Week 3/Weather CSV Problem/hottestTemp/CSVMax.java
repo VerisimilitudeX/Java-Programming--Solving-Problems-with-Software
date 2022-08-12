@@ -1,9 +1,7 @@
-import edu.duke.*;
-import org.apache.commons.csv.*;
-import java.io.*;
-
+import duke.*;
+import csv.*;
 public class CSVMax {
-	public CSVRecord hottestHourInFile(CSVParser parser) {
+	public static CSVRecord hottestHourInFile(CSVParser parser) {
 		//start with largestSoFar as nothing
 		CSVRecord largestSoFar = null;
 		//For each row (currentRow) in the CSV File
@@ -20,6 +18,7 @@ public class CSVMax {
 				if (currentTemp > largestTemp) {
 					//If so update largestSoFar to currentRow
 					largestSoFar = currentRow;
+				}
 			}
 		}
 		//The largestSoFar is the answer
@@ -29,7 +28,6 @@ public class CSVMax {
 	public static void main(String[] args) {
 		FileResource fr = new FileResource("data/2015/weather-2015-01-01.csv");
 		CSVRecord largest = hottestHourInFile(fr.getCSVParser());
-		System.out.println("hottest temperature was " + largest.get("TemperatureF") +
-				   " at " + largest.get("TimeEST"));
+		System.out.println("hottest temperature was " + largest.get("TemperatureF") + " at " + largest.get("TimeEST"));
 	}
 }
