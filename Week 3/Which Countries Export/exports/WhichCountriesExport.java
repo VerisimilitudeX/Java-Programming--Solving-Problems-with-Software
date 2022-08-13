@@ -74,12 +74,12 @@ public class WhichCountriesExport {
 
 		// Prints a list of countries that export both items
 		parser = fr.getCSVParser();
-		listExportersTwoProducts(parser, "fish", "nuts");
+		listExportersTwoProducts(parser, "cotton", "flowers");
 		System.out.println();
 
 		// Prints the number of countries that export the item
 		parser = fr.getCSVParser();
-		numberOfExporters(parser, "sugar");
+		numberOfExporters(parser, "cocoa");
 		System.out.println();
 
 		// Prints the list of countries that have a value greater than the one specified.

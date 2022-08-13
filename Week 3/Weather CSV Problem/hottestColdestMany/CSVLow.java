@@ -76,7 +76,7 @@ public class CSVLow {
 		for (File f : dr.selectedFiles()) {
 			FileResource fr = new FileResource(f);
 			CSVRecord currentRow = coldestHourInFile(fr.getCSVParser());
-			if (currentRow != null) {
+			if (lowestSoFar == null) {
 				lowestSoFar = currentRow;
 			}
 			else {
@@ -97,10 +97,15 @@ public class CSVLow {
 				lowestHumiditySoFar = currentRow;
 			}
 			else {
-				double currentHumidity = Double.parseDouble(currentRow.get("Humidity"));
-				double lowestHumidity = Double.parseDouble(lowestHumiditySoFar.get("Humidity"));
-				if (currentHumidity < lowestHumidity) {
-					lowestHumiditySoFar = currentRow;
+				try {
+					double currentHumidity = Double.parseDouble(currentRow.get("Humidity"));
+					double lowestHumidity = Double.parseDouble(lowestHumiditySoFar.get("Humidity"));
+					if (currentHumidity < lowestHumidity) {
+						lowestHumiditySoFar = currentRow;
+					}
+				}
+				catch(Exception e) {
+					// ignored
 				}
 			}
 		}
@@ -126,8 +131,8 @@ public class CSVLow {
 		return lowestSoFar;
 	}
 	public static double averageTemperatureInFile(CSVParser parser) {
-		int total = 0;
-		int count = 0;
+		double total = 0;
+		double count = 0;
 		for (CSVRecord currentRow : parser) {
 			double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
 			if (currentTemp != -9999) {
