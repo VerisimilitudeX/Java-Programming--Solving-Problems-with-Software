@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Week 2/Finding a Gene in DNA/Finding a Gene in DNA.iml" filepath="$PROJECT_DIR$/Week 2/Finding a Gene in DNA/Finding a Gene in DNA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Programming--Solving-Problems-with-Software.iml" filepath="$PROJECT_DIR$/.idea/Java-Programming--Solving-Problems-with-Software.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 3/Weather CSV Problem/Weather CSV Problem.iml" filepath="$PROJECT_DIR$/Week 3/Weather CSV Problem/Weather CSV Problem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 1/Week 1.iml" filepath="$PROJECT_DIR$/Week 1/Week 1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 2/Week 2.iml" filepath="$PROJECT_DIR$/Week 2/Week 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 4/Week 4.iml" filepath="$PROJECT_DIR$/Week 4/Week 4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 3/Which Countries Export/Which Countries Export.iml" filepath="$PROJECT_DIR$/Week 3/Which Countries Export/Which Countries Export.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 2/Finding a Gene in DNA/dna/dna.iml" filepath="$PROJECT_DIR$/Week 2/Finding a Gene in DNA/dna/dna.iml" />
+    </modules>
+  </component>
+</project>

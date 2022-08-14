@@ -10,6 +10,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Weather CSV Problem" />
+    <orderEntry type="module" module-name="Which Countries Export" />
   </component>
 </module>

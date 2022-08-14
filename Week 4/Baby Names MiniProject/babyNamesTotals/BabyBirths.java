@@ -5,6 +5,9 @@
  * @author Duke Software Team 
  */
 import duke.*;
+
+import java.io.File;
+
 import csv.*;
 
 public class BabyBirths {
@@ -60,7 +63,7 @@ public class BabyBirths {
 				count++;
 			}
 			if (currentRow.get(1).equals(gender) && count == rank) {
-				return "The name at rank " + rank + " in " + year + " is " + currentRow.get(0);
+				return currentRow.get(0);
 			}
 		}
 		return "No name found";
@@ -76,13 +79,59 @@ public class BabyBirths {
 		}
 	}
 
+	public static int yearOfHighestRank(String name, String gender) {
+		DirectoryResource dr = new DirectoryResource();
+		int highestRankSoFar = 999999999;
+		int rank = 0;
+		for (File f : dr.selectedFiles()) {
+			FileResource fr = new FileResource(f);
+			for (CSVRecord currentRow : fr.getCSVParser()) {
+				if (currentRow.get(1).equals(gender)) {
+					rank++;
+				}
+				if (currentRow.get(0).equals(name) && currentRow.get(1).equals(gender)) {
+					if (rank < highestRankSoFar) {
+						highestRankSoFar = rank;
+					}
+				}
+			}
+			rank = 0;
+		}
+		return highestRankSoFar;
+	}
+
+	public static double getAverageRank(String name, String gender) {
+		DirectoryResource dr = new DirectoryResource();
+		double sumRank = 0;
+		int fileCount = 0;
+		int currRank = 0;
+		for (File f : dr.selectedFiles()) {
+			fileCount++;
+			FileResource fr = new FileResource(f);
+            for (CSVRecord currentRow : fr.getCSVParser()) {
+				if (currentRow.get(1).equals(gender)) {
+					currRank++;
+					if (currentRow.get(0).equals(name)) {
+						sumRank += currRank;
+					}
+				}
+			}
+			currRank = 0;
+		}
+		return (int)(sumRank / fileCount);
+	}
 	public static void main(String[] args) {
+		for (int i = 0; i < 100; i++) {
+			System.out.println("");
+		}
 		// FileResource fr = new FileResource();
 		FileResource fr = new FileResource("data/yob2014.csv");
 		totalBirths(fr);
-
-		System.out.println(getRank(2007, "Piyush", "M"));
-
+		System.out.println("");
+		System.out.println("The rank is " + getRank(2007, "Piyush", "M"));
 		System.out.println(getName(2012, 45, "M"));
+		System.out.println("Your name in 2004 would be: " + whatIsNameInYear("Piyush", 2007, 2004, "M") +".");
+		System.out.println(yearOfHighestRank("Piyush", "M"));
+		System.out.println("The average rank of the name is: " + getAverageRank("Mason", "M"));
 	}
 }

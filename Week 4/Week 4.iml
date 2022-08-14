@@ -3,11 +3,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/dna" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Baby Names MiniProject/babyNames" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Baby Names MiniProject/babyNamesTotals" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Baby Names MiniProject/us_babynames_small" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Which Countries Export" />
-    <orderEntry type="module" module-name="Finding a Gene in DNA" />
   </component>
 </module>

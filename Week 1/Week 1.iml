@@ -9,8 +9,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="courserajava" level="project" />
-    <orderEntry type="module" module-name="Finding a Gene in DNA" />
+    <orderEntry type="module" module-name="Which Countries Export" />
     <orderEntry type="module" module-name="dna" />
-    <orderEntry type="module" module-name="Weather CSV Problem" />
+    <orderEntry type="module" module-name="Finding a Gene in DNA" />
   </component>
 </module>
