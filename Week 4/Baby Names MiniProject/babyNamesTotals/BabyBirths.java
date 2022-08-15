@@ -47,6 +47,9 @@ public class BabyBirths {
 		System.out.println("Girls' names = " + totalNamesGirls);
 	}
 
+	// Given a year, read a file containing the year.
+	// Read all rows in the file, if gender is matched, keep a count.
+	// If gender and name are matched, then return the count.
 	public static int getRank(int year, String name, String gender) {
 		int rank = 0;
 		FileResource fr = new FileResource("data/yob" + year + ".csv");
@@ -114,26 +117,26 @@ public class BabyBirths {
 		DirectoryResource dr = new DirectoryResource();
 		double sumRank = 0;
 		int fileCount = 0;
-		int currRank = 0;
 		for (File f : dr.selectedFiles()) {
-			int oldSumRank = 0;
+			int genderMatched = 0;
 			FileResource fr = new FileResource(f);
 			for (CSVRecord currentRow : fr.getCSVParser()) {
 				if (currentRow.get(1).equals(gender)) {
-					currRank++;
+					genderMatched++;
 					if (currentRow.get(0).equals(name)) {
-						sumRank += currRank;
+						sumRank += genderMatched;
+						break;
 					}
 				}
 			}
-			if (oldSumRank != sumRank) {
+
+			if (genderMatched > 0) {
 				fileCount++;
 			}
-			currRank = 0;
 		}
-		return (int) (sumRank / fileCount);
-	}
 
+		return (sumRank / fileCount);
+	}
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
