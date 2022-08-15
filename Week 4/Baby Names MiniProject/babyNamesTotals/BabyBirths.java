@@ -52,30 +52,41 @@ public class BabyBirths {
 	// If gender and name are matched, then return the count.
 	public static int getRank(int year, String name, String gender) {
 		int rank = 0;
+		int toReturn = 0;
 		FileResource fr = new FileResource("data/yob" + year + ".csv");
 		for (CSVRecord currentRow : fr.getCSVParser()) {
 			if (currentRow.get(1).equals(gender)) {
 				rank++;
 			}
 			if (currentRow.get(0).equals(name) && currentRow.get(1).equals(gender)) {
-				return rank;
+				toReturn = rank;
+				break;
 			}
 		}
-		return -1;
+		if (toReturn != 0) {
+			return toReturn;
+		} else {
+			return -1;
+		}
 	}
 
 	public static String getName(int year, int rank, String gender) {
 		int count = 0;
+		String x = null;
 		FileResource fr = new FileResource("data/yob" + year + ".csv");
 		for (CSVRecord currentRow : fr.getCSVParser()) {
 			if (currentRow.get(1).equals(gender)) {
 				count++;
 			}
 			if (currentRow.get(1).equals(gender) && count == rank) {
-				return currentRow.get(0);
+				x = currentRow.get(0);
 			}
 		}
-		return "No name found";
+		if (x != null) {
+			return x;
+		} else {
+			return "NO NAME";
+		}
 	}
 
 	public static String whatIsNameInYear(String name, int year, int newYear, String gender) {
@@ -137,7 +148,10 @@ public class BabyBirths {
 
 		return (sumRank / fileCount);
 	}
-
+	public static int getTotalBirthsRankedHigher(int year, String name, String gender) {
+		int totalBirths = 0;
+		int rank = getRank(year, name, gender);
+	}
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
 			System.out.println("");
@@ -150,6 +164,6 @@ public class BabyBirths {
 		System.out.println("Name: " + getName(1982, 450, "M"));
 		System.out.println("Your name would be: " + whatIsNameInYear("Owen", 1974, 2014, "M"));
 		System.out.println("Highest rank: " + yearOfHighestRank("Genevieve", "F"));
-		System.out.println("Average rank: " + getAverageRank("Robert", "M"));
+		System.out.println("Average rank: " + getAverageRank("Susan", "F"));
 	}
 }
